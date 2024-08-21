@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worktime Dashboard</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f8fa;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #34495e;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 2px solid #2c3e50;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #34495e;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .filter select {
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .interns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .year-group {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+            display: none; /* Hide by default */
+        }
+
+        .interns-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .intern {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 25rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #2c3e50;
+        }
+
+        .intern:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .objsize {
+            width: 100%;
+            height: auto;
+            max-height: 15rem;
+            margin-top: 15px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            .filter select {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            .intern {
+                max-width: 100%;
+            }
+
+            .objsize {
+                max-height: 12rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .filter select {
+                font-size: 0.8rem;
+                padding: 6px;
+            }
+
+            .intern {
+                padding: 15px;
+            }
+
+            .objsize {
+                max-height: 10rem;
+            }
+        }
+    </style>
+    <link rel="icon" href="./favicon/pngegg.png" type="image/x-icon">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const select = document.getElementById('year-select');
+            const yearGroups = document.querySelectorAll('.year-group');
+
+            select.addEventListener('change', function () {
+                const selectedYear = this.value;
+                
+                yearGroups.forEach(group => {
+                    if (group.classList.contains(selectedYear)) {
+                        group.style.display = 'block';
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+            });
+
+            // Show the default selected year
+            select.dispatchEvent(new Event('change'));
+        });
+    </script>
+</head>
+<body>
+    <h1>Worktime Dashboard</h1>
+    <div class="filter">
+        <select id="year-select">
+            <option value="fourth-year">4th Year</option>
+            <option value="third-year">3rd Year</option>
+        </select>
+    </div>
+    <div class="interns">
+        <div class="year-group fourth-year">
+            <h2>4th Year</h2>
+            <div class="interns-row">
+                <div class="intern">
+                    <h3>Joel Thaduri</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="intern">
+                    <h3>Shivani</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="intern">
+                    <h3>Intern 1</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="intern">
+                    <h3>Intern 2</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="intern">
+                    <h3>Intern 3</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+            </div>
+        </div>
+        <div class="year-group third-year">
+            <h2>3rd Year</h2>
+            <div class="interns-row">
+                <div class="intern">
+                    <h3>Intern 4</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="intern">
+                    <h3>Intern 5</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="intern">
+                    <h3>Intern 6</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="intern">
+                    <h3>Intern 7</h3>
+                    <object class="objsize" data="https://wakatime.com/share/@tugjdt_23003/c6fe130d-07ad-4761-a7a7-2fe0b9f81749.svg" type="image/svg+xml"></object>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
